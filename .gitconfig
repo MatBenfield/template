@@ -1,0 +1,44 @@
+[merge]
+  tool = code-insiders
+[mergetool "code-insiders"]
+  cmd = code-insiders --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[color]
+  interactive = true
+  branch = true
+  status = true
+[init]
+	defaultBranch = main
+[alias]
+  out = log --branches --not --remotes
+  in = pull --dry-run
+  co = checkout
+  coc = checkout .
+  cob = checkout -b
+  cobf = "!f() { git brd $1; git cob $1; }; f"
+  col = checkout HEAD~1
+  cotc = !git sttc | xargs git checkout
+  como = !git stmo | xargs git checkout
+  ci = commit
+  cl = clean
+  cldf = clean -df
+  tags = tag -l
+  pg = diff
+  pgs = diff --staged
+  pa = apply
+  s = show --color
+  d = diff --color
+  f = fetch
+  fu = !git fetch `git upstream-remote`
+  fa = fetch --all
+  fo = fetch origin
+  m = merge --no-edit
+  unm = reset --merge
+  ps = push
+  psu = push -u
+  pso = push origin
+  pl = pull
+  plo = pull origin
+  plom = pull origin master
+  a = add --all
+  af = add --all -f
+  ap = add -p
